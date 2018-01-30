@@ -1,39 +1,11 @@
 var chemicalElementCompositionSimplePopupOptions = {
-    width: 700,
+    width: 800,
     title: "Periodic Table",
     create: function(event, ui) {
         // Initialization
         $(this).find('.sample-row').hide();
         $(this).find('.saved-data').hide();
-
-        var elements = $(this).find('.element-list tbody tr:not(.empty)');
-        var savedElementCount = 0;
-
-        $.each(elements, function(index, element) {
-            var $element = $(element);
-
-            if($element.hasClass('saved')) {
-                savedElementCount += 1;
-
-                if($element.is(':hidden')) {
-                    $element.show();
-                }
-
-                var qty = $element.find('.qty .saved-data').text();
-                $element.find('.qty input').val(qty);
-
-                var pur = $element.find('.pur .saved-data').text();
-                $element.find('.pur input').val(pur);
-
-            } else {
-                $element.remove();
-            }
-        });
-
-        console.log('saved:' + savedElementCount);
-        if(savedElementCount === 0) {
-            $(this).find('.element-list .empty').show();
-        }
+        $(this).find('.element-list .empty').hide();
     },
 }
 
@@ -51,14 +23,14 @@ saveChemicalElementCompositionSimpleData = function() {
         var elementData = {};
 
         if(!$element.hasClass('empty')) {
-            $element.addClass('saved');
-
+            // name
             elementData.name = $element.find('.name').text();
+            // qty
             elementData.qty = $element.find('.qty input').val();
-            $element.find('.qty .saved-data').text(elementData.qty);
-
+            $element.find('.qty :input').attr('value', elementData.qty);
+            // pur
             elementData.pur = $element.find('.pur input').val();
-            $element.find('.pur .saved-data').text(elementData.pur);
+            $element.find('.pur :input').attr('value', elementData.pur);
 
             data.push(elementData);
         }
@@ -70,3 +42,5 @@ saveChemicalElementCompositionSimpleData = function() {
 configurePopUp('module-chemical-composition-simple',
                 chemicalElementCompositionSimplePopupOptions,
                 saveChemicalElementCompositionSimpleData);
+
+

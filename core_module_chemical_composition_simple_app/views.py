@@ -3,19 +3,12 @@
 import json
 
 from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
-from core_parser_app.tools.modules.views.module import AbstractModule
-from core_module_chemical_composition_app.views import render_chemical_composition
+from core_module_chemical_composition_app.api import render_chemical_composition, get_chemical_composition_popup_content
 
 
 class ChemicalCompositionSimpleModule(AbstractPopupModule):
     def __init__(self):
-
-        template = AbstractModule.render_template('core_module_periodic_table_app/periodic.html')
-        popup_content = AbstractModule.render_template('core_module_chemical_composition_simple_app/'
-                                                       'chemical_composition_simple.html',
-                                                       {'periodic_table': template})
-
-        AbstractPopupModule.__init__(self, popup_content=popup_content, button_label='Select Element',
+        AbstractPopupModule.__init__(self, button_label='Select Element',
                                      styles=['core_module_periodic_table_app/css/periodic.css',
                                              'core_module_chemical_composition_app/css/'
                                              'chemical_element_composition.css'],
@@ -62,4 +55,14 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
         Returns:
 
         """
-        return render_chemical_composition(self.data, True, False)
+        return render_chemical_composition(self.data, True, False,
+                                           'core_module_chemical_composition_app/render_data.html')
+
+    def _get_popup_content(self):
+        """ Return module's data rendering
+        """
+        # rendering data in the edit form
+        data_template = render_chemical_composition(self.data, True, False,
+                                                    'core_module_chemical_composition_app/edit_data.html')
+
+        return get_chemical_composition_popup_content(self.data, data_template)
