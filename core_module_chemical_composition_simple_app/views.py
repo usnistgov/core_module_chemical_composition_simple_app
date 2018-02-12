@@ -38,7 +38,8 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
                         element_list_xml += '<constituent>'
                         element_list_xml += "<element>" + element['name'] + "</element>"
                         element_list_xml += "<quantity>" + element['qty'] + "</quantity>"
-                        element_list_xml += "<purity>" + element['pur'] + "</purity>"
+                        if element['pur'] != '':
+                            element_list_xml += "<purity>" + element['pur'] + "</purity>"
                         element_list_xml += '</constituent>'
                     # set the data
                     data = element_list_xml
