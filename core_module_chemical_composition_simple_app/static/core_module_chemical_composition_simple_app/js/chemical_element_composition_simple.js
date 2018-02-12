@@ -5,7 +5,6 @@ var chemicalElementCompositionSimplePopupOptions = {
         // Initialization
         $(this).find('.sample-row').hide();
         $(this).find('.saved-data').hide();
-        $(this).find('.element-list .empty').hide();
     },
 }
 
@@ -17,7 +16,6 @@ saveChemicalElementCompositionSimpleData = function() {
 
     var elementList = openPopUp.find('.element-list tbody');
     var data = [];
-
     $.each(elementList.find('tr'), function(index, element) {
         var $element = $(element);
         var elementData = {};
