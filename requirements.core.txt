@@ -1,4 +1,4 @@
-core-parser-app==1.0.0-rc2
-core-module-periodic-table-app==1.0.0-rc2
-core-module-chemical-composition-app==1.0.0-rc2
-xml-utils==1.0.0-rc2
+core-parser-app==1.0.0
+core-module-periodic-table-app==1.0.0
+core-module-chemical-composition-app==1.0.0
+xml-utils==1.0.0
