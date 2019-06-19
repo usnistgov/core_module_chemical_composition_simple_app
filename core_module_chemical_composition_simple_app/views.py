@@ -2,8 +2,8 @@
 """
 import json
 
-from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
 from core_module_chemical_composition_app.api import render_chemical_composition, get_chemical_composition_popup_content
+from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
 
 
 class ChemicalCompositionSimpleModule(AbstractPopupModule):
