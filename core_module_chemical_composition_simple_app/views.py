@@ -27,7 +27,7 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
         )
 
     def _retrieve_data(self, request):
-        """ Retrieve module's data
+        """Retrieve module's data
 
         Args:
             request:
@@ -60,7 +60,7 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
         return data
 
     def _render_data(self, request):
-        """ Return module's data rendering
+        """Return module's data rendering
 
         Args:
             request:
@@ -76,8 +76,7 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
         )
 
     def _get_popup_content(self):
-        """ Return module's data rendering
-        """
+        """Return module's data rendering"""
         # rendering data in the edit form
         data_template = render_chemical_composition(
             self.data,
