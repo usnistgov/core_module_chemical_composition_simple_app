@@ -1,4 +1,4 @@
 core-parser-app==1.12.*
 core-module-periodic-table-app==1.12.*
 core-module-chemical-composition-app==1.12.*
-xml-utils==1.10.*
+xml-utils==1.11.*
