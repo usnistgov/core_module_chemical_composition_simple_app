@@ -85,4 +85,6 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
             "core_module_chemical_composition_app/edit_data.html",
         )
 
-        return get_chemical_composition_popup_content(self.data, data_template)
+        return get_chemical_composition_popup_content(
+            data=self.data, edit_template=data_template
+        )

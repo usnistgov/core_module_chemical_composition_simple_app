@@ -1,24 +1,16 @@
-var chemicalElementCompositionSimplePopupOptions = {
-    width: 800,
-    title: "Chemical Composition",
-    create: function(event, ui) {
-        // Initialization
-        $(this).find('.sample-row').hide();
-        $(this).find('.saved-data').hide();
-    },
-}
-
+/** Chemical Composition Simple script */
 saveChemicalElementCompositionSimpleData = function() {
-    var hiddenSavedElements = openPopUp.find('.saved:hidden');
+    let jqModuleOpenModal = $($("#modal-" + moduleElement[0].id)[0]);
+    let hiddenSavedElements = jqModuleOpenModal.find('.saved:hidden');
     $.each(hiddenSavedElements, function(index, hiddenElement) {
         $(hiddenElement).remove();
     });
 
-    var elementList = openPopUp.find('.element-list tbody');
-    var data = [];
+    let elementList = jqModuleOpenModal.find('.element-list tbody');
+    let data = [];
     $.each(elementList.find('tr'), function(index, element) {
-        var $element = $(element);
-        var elementData = {};
+        let $element = $(element);
+        let elementData = {};
 
         if(!$element.hasClass('empty')) {
             // name
@@ -37,8 +29,12 @@ saveChemicalElementCompositionSimpleData = function() {
     return {'elementList': JSON.stringify(data)};
 }
 
+let chemicalElementCompositionSimplePopupOptions = {
+    title: "Chemical Composition",
+    getData: saveChemicalElementCompositionSimpleData
+}
+
 configurePopUp('module-chemical-composition-simple',
-                chemicalElementCompositionSimplePopupOptions,
-                saveChemicalElementCompositionSimpleData);
+                chemicalElementCompositionSimplePopupOptions);
 
 
