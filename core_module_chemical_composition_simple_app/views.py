@@ -10,6 +10,8 @@ from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPop
 
 
 class ChemicalCompositionSimpleModule(AbstractPopupModule):
+    """Chemical Composition Simple Module"""
+
     def __init__(self):
         AbstractPopupModule.__init__(
             self,
