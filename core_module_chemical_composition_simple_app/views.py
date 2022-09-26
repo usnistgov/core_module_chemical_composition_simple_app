@@ -6,7 +6,9 @@ from core_module_chemical_composition_app.api import (
     render_chemical_composition,
     get_chemical_composition_popup_content,
 )
-from core_parser_app.tools.modules.views.builtin.popup_module import AbstractPopupModule
+from core_parser_app.tools.modules.views.builtin.popup_module import (
+    AbstractPopupModule,
+)
 
 
 class ChemicalCompositionSimpleModule(AbstractPopupModule):
@@ -48,7 +50,9 @@ class ChemicalCompositionSimpleModule(AbstractPopupModule):
                     element_list_xml = ""
                     for element in element_list:
                         element_list_xml += "<constituent>"
-                        element_list_xml += "<element>" + element["name"] + "</element>"
+                        element_list_xml += (
+                            "<element>" + element["name"] + "</element>"
+                        )
                         element_list_xml += (
                             "<quantity>" + element["qty"] + "</quantity>"
                         )
