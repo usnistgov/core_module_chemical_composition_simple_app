@@ -1,5 +1,6 @@
 """ Chemical composition simple module view
 """
+
 import json
 
 from core_module_chemical_composition_app.api import (
