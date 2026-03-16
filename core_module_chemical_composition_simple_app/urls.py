@@ -1,5 +1,4 @@
-""" Url router for the chemical composition simple module
-"""
+"""Url router for the chemical composition simple module"""
 
 from django.urls import re_path
 

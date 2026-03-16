@@ -1,5 +1,4 @@
-""" Chemical composition simple module view
-"""
+"""Chemical composition simple module view"""
 
 import json
 
